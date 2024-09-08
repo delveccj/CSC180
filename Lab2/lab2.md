@@ -1,4 +1,4 @@
-Absolutely! Showing how data is stored at a binary level using ASCII and a ZIP file is a great way to help students understand data encoding. Here are two examples: one using plain text (ASCII) and the other using a ZIP file. We’ll use `xxd` to view the hexadecimal and binary representation, and for the ZIP file, I'll explain the structure of the file's bytes.
+You need to understand data encoding. Here are two examples: one using plain text (ASCII) and the other using a ZIP file. We’ll use `xxd` to view the hexadecimal and binary representation, and for the ZIP file, I'll explain the structure of the file's bytes.
 
 ### Example 1: ASCII Text File (Simple and Relatable)
 
