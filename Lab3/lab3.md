@@ -198,3 +198,82 @@ If you made a mistake and want to go back to an earlier version of your project:
 ---
 
 This tutorial should give your students a solid understanding of Git’s core concepts, especially how **commits** work and how to **leverage history** to recover or view changes.
+
+Git is dangerous.  There have been several instances where sensitive information was **accidentally committed to a Git repository**, deleted later, but still exposed through **Git history**. This happens because even if a file is removed or modified in a later commit, **Git retains all changes in its commit history**, allowing someone to retrieve the original content unless the history is explicitly rewritten.  Imagine if you store this information on your companie's internal github because, of course, its safe.
+
+### **Example 1: GitHub API Key Exposure in Git History (2018)**
+
+#### **What Happened:**
+- In 2018, a software developer working on a project accidentally committed **GitHub API keys** to a private repository.
+- The keys were removed in a subsequent commit, but because Git keeps a record of all previous versions of a file, the keys remained in the **commit history**.
+- Hackers scanning public GitHub repositories for exposed API keys found the keys in the **Git history**, despite the developer having "removed" them in the current version of the repository.
+
+#### **Impact:**
+- The attackers used the API keys to access the developer's GitHub account and repositories, potentially gaining access to other sensitive code, intellectual property, or other private data.
+- This is a common vulnerability when developers unknowingly expose sensitive information like API keys, database passwords, or AWS credentials.
+
+#### **Prevention**:
+- **GitHub’s Secret Scanning**: GitHub has since added **automated secret scanning** that alerts repository owners when they commit sensitive information like API keys.
+- **`git filter-branch` and `BFG Repo-Cleaner`**: To completely remove sensitive data from Git history, tools like `git filter-branch` or **BFG Repo-Cleaner** can be used to rewrite Git history and permanently remove sensitive data from all commits.
+
+---
+
+### **Example 2: Uber's AWS Keys Exposed in Git History**
+
+#### **What Happened**:
+- In the **Uber 2016 breach** mentioned earlier, Uber initially **removed** the AWS credentials from the public repository after realizing the mistake.
+- However, the credentials were still **accessible in the Git history** of the repository. Hackers used this fact to retrieve the AWS credentials, gaining access to Uber’s sensitive data.
+
+#### **Impact**:
+- The hackers gained access to Uber’s **Amazon S3 buckets**, which contained sensitive data on **57 million users** and **600,000 drivers**.
+- The exposure happened even after Uber’s attempt to remove the credentials, simply because they existed in the history of the repository.
+
+#### **Lessons Learned**:
+- Even if sensitive information is deleted in the current version of the repository, **Git’s history keeps everything** unless explicitly rewritten.
+- The correct approach would have been to use **history rewriting tools** like `git filter-branch` or BFG to scrub the entire history and force-push the cleaned version.
+
+---
+
+### **Example 3: Slack Tokens Exposed in Git History**
+
+#### **What Happened**:
+- In 2017, a developer accidentally committed a file containing **Slack API tokens** into a Git repository.
+- After realizing the mistake, the developer quickly removed the file and committed the changes.
+- However, the original commit containing the API token still existed in the **Git history**, making it possible for anyone with access to the repository to retrieve the sensitive token from earlier commits.
+
+#### **Impact**:
+- The token was used by unauthorized users to gain access to Slack's internal communication, potentially exposing sensitive messages and files.
+
+#### **How It Could Have Been Prevented**:
+- After realizing that sensitive information has been committed, it’s important to **rewrite the Git history** to **permanently remove the sensitive data**, not just remove it in a later commit.
+- Tools like **BFG Repo-Cleaner** can help clean the Git history, and **revoking and rotating API keys** or tokens is necessary immediately after such exposure.
+
+---
+
+### **How to Prevent Sensitive Data in Git History:**
+
+1. **Git Pre-Commit Hooks**: 
+   - Use pre-commit hooks to automatically **prevent sensitive data from being committed** in the first place. Tools like **`pre-commit`**, **`git-secrets`**, or **`talisman`** can be used to block commits containing sensitive information like API keys, passwords, and other credentials.
+
+2. **Remove Sensitive Data from Git History**:
+   - If sensitive information has been committed, use tools like **`git filter-branch`** or **BFG Repo-Cleaner** to scrub it from the entire Git history.
+   
+   **Example**:
+   ```bash
+   # Using BFG to remove a file from history
+   bfg --delete-files 'file_with_secrets.txt'
+   
+   # Clean Git history
+   git reflog expire --expire=now --all && git gc --prune=now --aggressive
+   ```
+
+3. **Rotate Keys and Secrets**: 
+   - If any sensitive information is exposed, immediately **revoke and rotate** the keys (e.g., API keys, AWS credentials) and ensure new keys are properly secured.
+
+4. **Use Environment Variables**:
+   - Instead of hardcoding secrets in the source code, use environment variables or secret management tools like **AWS Secrets Manager**, **Vault**, or **GitHub Secrets**.
+
+---
+
+### **Conclusion:**
+These examples show how **critical information** like API keys and credentials can be accidentally committed to a Git repository and later exposed through **Git history**, even after the sensitive information is deleted in subsequent commits. To ensure sensitive data is properly removed, developers must rewrite the Git history and use tools that can prevent accidental exposure.
