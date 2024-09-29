@@ -1,4 +1,10 @@
-Great choice with Metasploitable 2! It's a fantastic training ground for pentesting skills. Now, let's look at some **medium-hard** picoCTF challenges that would dovetail nicely with the types of tasks and skills you might need for a Hivestorm-style event. These CTF challenges should align with the themes of **cyber defense**, **vulnerability exploitation**, and **system security**.
+We will download and install Metasploitable 2!
+Description: Metasploitable 2 is one of the most popular intentionally vulnerable VMs designed by Rapid7. It is an excellent starting point for practicing penetration testing, vulnerability exploitation, and learning to identify common security misconfigurations.
+Challenges: Includes a wide range of vulnerabilities like weak services (e.g., vsftpd, MySQL, PHP), misconfigurations, outdated software, and various security flaws.
+Download: Metasploitable 2 on SourceForge
+It's a fantastic training ground for pentesting skills. 
+
+Also here are some **medium-hard** picoCTF challenges that will dovetail nicely with the types of tasks and skills you might need for a Hivestorm-style event. These CTF challenges should align with the themes of **cyber defense**, **vulnerability exploitation**, and **system security**.
 
 ### **Medium-Hard picoCTF Challenges:**
 
