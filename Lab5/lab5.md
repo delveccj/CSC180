@@ -22,7 +22,7 @@ Also here are some **medium-hard** picoCTF challenges that will dovetail nicely 
    - **Skills Covered**: Cryptographic analysis, multi-step decryption, problem-solving.
    - **Why It Fits**: In Hivestorm-like competitions, you may need to decipher encrypted messages or recover encrypted data from a compromised system. This challenge sharpens those cryptographic analysis skills.
 
-3. **Binary Exploitation: "Buffer Overflow 2"**
+3. **Binary Exploitation: "Buffer Overflow "**
    - **Description**: This challenge focuses on exploiting a buffer overflow vulnerability in a binary to gain control of the program and retrieve the flag.
    - **Skills Covered**: Binary exploitation, stack overflows, memory manipulation.
    - **Why It Fits**: Buffer overflows are classic vulnerabilities that appear in real-world systems and CTFs alike. This challenge aligns with the exploit development and defensive aspects of Hivestorm events, where securing code from such exploits is key.
