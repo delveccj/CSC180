@@ -33,4 +33,4 @@ Great choice with Metasploitable 2! It's a fantastic training ground for pentest
 - **Hivestorm** is a collegiate cybersecurity defense competition that focuses on securing vulnerable systems. The key skills tested are vulnerability identification, system hardening, and forensic analysis.
 - These picoCTF challenges involve realistic exploitation and defense tasks—such as forensic investigation, fixing misconfigurations, and defending against web and binary exploits—which are crucial for success in a Hivestorm-style event.
   
-Using these challenges will help your team develop a well-rounded skill set in both offensive and defensive techniques. Happy practicing!
+Using these challenges will help our team develop a well-rounded skill set in both offensive and defensive techniques. Happy practicing!
