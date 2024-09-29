@@ -4,7 +4,7 @@ We will download and install **Metasploitable 2**
 
 **Challenges**: Includes a wide range of vulnerabilities like weak services (e.g., vsftpd, MySQL, PHP), misconfigurations, outdated software, and various security flaws.
 
-**Download**: Metasploitable 2 on SourceForge
+**Download**: Metasploitable 2 on SourceForge https://docs.rapid7.com/metasploit/metasploitable-2/
 
 It's a fantastic training ground for pentesting skills. 
 
