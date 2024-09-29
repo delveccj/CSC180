@@ -1,6 +1,6 @@
 Great choice with Metasploitable 2! It's a fantastic training ground for pentesting skills. Now, let's look at some **medium-hard** picoCTF challenges that would dovetail nicely with the types of tasks and skills you might need for a Hivestorm-style event. These CTF challenges should align with the themes of **cyber defense**, **vulnerability exploitation**, and **system security**.
 
-### **Recommended Medium-Hard picoCTF Challenges:**
+### **Medium-Hard picoCTF Challenges:**
 
 1. **Forensics: "Sleuthkit Apprentice"**
    - **Description**: This challenge involves file system forensics using tools like `sleuthkit` or `Autopsy`. Participants are asked to investigate a disk image for hidden or deleted files and recover evidence or flags.
